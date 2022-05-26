@@ -8,7 +8,7 @@
 #include <fstream> //za datotteka
 using namespace std;
 
-struct Profil
+struct Profil //strukturata
 
 {
 
