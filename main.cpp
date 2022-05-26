@@ -82,7 +82,7 @@ for(const auto* p: Profili)
 
 cout << p->IDbroj << ": " << p->Nickname << '\n';
 
-//vector vo nadvoreshen fajl
+//vector vo nadvoreshen fajl txt fajlche
 ofstream outFile ("INKI814DAVIDJORDANOSKI.txt");
 for (const auto& q: Profili) outFile<<q<<endl;
 
