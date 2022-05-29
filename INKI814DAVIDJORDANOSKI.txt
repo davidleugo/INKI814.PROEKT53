@@ -1,5 +1,15 @@
-0x1f1a10
-0x1f1790
-0x1f5ca0
-0x1f1a50
-0x1f5c30
+Pechatenje na podatocite
+    IDbroj  Nickname
+  14621136     David
+  14638128   Anabela
+  14638128     Sanja
+  39527568    Nikola
+  39527568      Ivan
+
+Podatocite sortirani po rastecki A-Z
+    IDbroj  Nickname
+14638128: Anabela
+14621136: David
+39527568: Ivan
+39527568: Nikola
+14638128: Sanja

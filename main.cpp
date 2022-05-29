@@ -12,26 +12,26 @@ struct Profil //strukturata
 
 {
 
-int IDbroj;
+    int IDbroj;
 
-string Nickname;
+    string Nickname;
 
-float  Nivo;
+    float  Nivo;
 
-Profil(int ID, const string& Nickname)
+    Profil(int ID, const string& Nickname)
 
-: IDbroj(IDbroj), Nickname(Nickname), Nivo(Nivo)
-{
+        : IDbroj(IDbroj), Nickname(Nickname), Nivo(Nivo)
+    {
 
-}
+    }
 
-bool operator<(const Profil& p) const
+    bool operator<(const Profil& p) const
 
-{
+    {
 
-return Nickname < p.Nickname; //sortiranje po Nickname
+        return Nickname < p.Nickname; //sortiranje po Nickname
 
-}
+    }
 
 };
 
@@ -39,13 +39,13 @@ return Nickname < p.Nickname; //sortiranje po Nickname
 struct Sortiranjenapointeroodprofilo
 
 {
-bool operator()(const Profil* j, const Profil* v) const
+    bool operator()(const Profil* j, const Profil* v) const
 
-{
+    {
 
-return *j < *v;
+        return *j < *v;
 
-}
+    }
 
 };
 
@@ -53,41 +53,54 @@ int main()
 
 {
 
-vector<Profil*> Profili;
+    vector<Profil*> Profili;
 
-Profili.push_back(new Profil(2, "David"));
+    Profili.push_back(new Profil(2, "David"));
 
-Profili.push_back(new Profil(4, "Anabela"));
+    Profili.push_back(new Profil(4, "Anabela"));
 
-Profili.push_back(new Profil(1, "Sanja"));
+    Profili.push_back(new Profil(1, "Sanja"));
 
-Profili.push_back(new Profil(5, "Nikola"));
+    Profili.push_back(new Profil(5, "Nikola"));
 
-Profili.push_back(new Profil(3, "Ivan"));
+    Profili.push_back(new Profil(3, "Ivan"));
 
-cout<<"Pechatenje na podatocite"<<endl;
-cout<<setw(10)<<"IDbroj"<<setw(10)<<"Nickname"<<endl;
+    auto copy_of_Profili = Profili;
 
-for(const auto* p: Profili)
+    cout << "Pechatenje na podatocite" << endl;
+    cout << setw(10) << "IDbroj" << setw(10) << "Nickname" << endl;
+
+    for (const auto* p : Profili)
     {
-        cout <<setw(10)<<p->IDbroj<<setw(10)<< p->Nickname <<endl;
+        cout << setw(10) << p->IDbroj << setw(10) << p->Nickname << endl;
     }
 
-cout<<endl<<"Podatocite sortirani po rastecki A-Z"<<endl;
-cout<<setw(10)<<"IDbroj"<<setw(10)<<"Nickname"<<endl;
 
-sort(Profili.begin(), Profili.end(), Sortiranjenapointeroodprofilo());
+    cout << endl << "Podatocite sortirani po rastecki A-Z" << endl;
+    cout << setw(10) << "IDbroj" << setw(10) << "Nickname" << endl;
 
-for(const auto* p: Profili)
+    sort(Profili.begin(), Profili.end(), Sortiranjenapointeroodprofilo());
 
-cout << p->IDbroj << ": " << p->Nickname << '\n';
+    for (const auto* p : Profili)
 
-//vector vo nadvoreshen fajl txt fajlche
-ofstream outFile ("INKI814DAVIDJORDANOSKI.txt");
-for (const auto& q: Profili) outFile<<q<<endl;
+        cout << p->IDbroj << ": " << p->Nickname << '\n';
 
-for(auto* p: Profili)
+    //vector vo nadvoreshen fajl txt fajlche
+    ofstream outFile("INKI814DAVIDJORDANOSKI.txt");
+    outFile << "Pechatenje na podatocite" << endl;
+    outFile << setw(10) << "IDbroj" << setw(10) << "Nickname" << endl;
+    for (const auto* p : copy_of_Profili)
+    {
+        outFile << setw(10) << p->IDbroj << setw(10) << p->Nickname << endl;
+    }
 
-delete p;
+    outFile << endl << "Podatocite sortirani po rastecki A-Z" << endl;
+    outFile << setw(10) << "IDbroj" << setw(10) << "Nickname" << endl;
+    sort(Profili.begin(), Profili.end(), Sortiranjenapointeroodprofilo());
+
+    for (const auto* p : Profili)
+
+        outFile << p->IDbroj << ": " << p->Nickname << '\n';
+//konechen komit broj 4
 
 }
